@@ -1,0 +1,23 @@
+{
+  "repository": "http://github.com/bob/bob.git",
+  "license": "UNLICENSED",
+  "private": true,
+  "description": "Some JS code for doing things",
+  "dependencies": {
+    "babel-plugin-transform-react-jsx": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.3.0",
+    "cloner": "^0.4.0",
+    "d3": "^4.9.1",
+    "nanoajax": "^0.4.3",
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-perf": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-draggable": "^2.2.6",
+    "react-notifications": "^1.3.0",
+    "react-tooltip": "^3.3.0"
+  }
+}
