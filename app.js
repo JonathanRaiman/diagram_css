@@ -2,103 +2,138 @@ var nodes = [
     [
         {
             "text": "Type Axis 1",
-            "type": ["yellow"],
-            "name": "ta1"
+            "class": ["node-yellow"],
+            "name": "ta1",
+            "position": {
+                "left": "25%"
+            }
         },
         {
             "text": "...",
-            "type": ["etc"]
+            "class": ["node-etc"],
+            "position": {
+                "left": "50%"
+            }
         },
         {
             "text": "Type Axis k",
-            "type": ["yellow"],
-            "name": "tak"
+            "class": ["node-yellow"],
+            "name": "tak",
+            "position": {
+                "left": "75%"
+            }
         },
         {
-            "text": "Thing",
-            "type": ["gray"],
+            "text": "Here's a really long winded message about how you should do diagrams NOT with SVGs, but with React!",
+            "class": ["node-gray", "node-comment", "node-comment1"],
             "name": "thing",
             "parent": ["tak", "thing2"]
         },
         {
             "text": "Thing",
-            "type": ["gray"],
+            "class": ["node-gray", "node-comment", "node-comment2"],
             "name": "thing2"
         }
     ],
     [
         {
             "text": "softmax",
-            "type": ["green"],
+            "class": ["node-green"],
             "name": "s1",
-            "parent": ["ta1"]
+            "parent": ["ta1"],
+            "position": {
+                "left": "25%"
+            }
         },
         {
             "text": "",
-            "type": []
+            "class": [],
+            "position": {
+                "left": "50%"
+            }
         },
         {
             "text": "softmax",
-            "type": ["green"],
+            "class": ["node-green"],
             "name": "s2",
-            "parent": ["tak"]
+            "parent": ["tak"],
+            "position": {
+                "left": "75%"
+            }
         }
     ],
     [
         {
             "text": "FC",
-            "type": ["purple", "circle"],
+            "class": ["node-purple", "node-circle"],
             "name": "fc1",
-            "parent": ["s1"]
-        },
-        {
-            "text": "",
-            "type": []
+            "parent": ["s1"],
+            "position": {
+                "left": "25%"
+            }
         },
         {
             "text": "FC",
-            "type": ["purple", "circle"],
+            "class": ["node-purple", "node-circle"],
             "name": "fc2",
-            "parent": ["s2"]
+            "parent": ["s2"],
+            "position": {
+                "left": "75%"
+            }
         }
     ],
     [
         {
             "text": "Stacked Bi-LSTM",
-            "type": ["blue"],
-            "width": "75%",
+            "class": ["node-blue"],
+            "width": "55%",
             "height": 0.4,
             "name": "lstm",
-            "parent": ["fc1", "fc2"]
+            "parent": ["fc1", "fc2"],
+            "position": {
+                "left": "50%"
+            }
         }
     ],
     [
         {
             "text": "dropout",
-            "type": ["green"],
-            "width": "75%",
+            "class": ["node-green"],
+            "width": "55%",
             "name": "dropout",
-            "parent": ["lstm"]
+            "parent": ["lstm"],
+            "position": {
+                "left": "50%"
+            }
         }
     ],
     [
         {
             "text": "Word 1",
-            "type": ["yellow"],
+            "class": ["node-yellow"],
             "parent": ["dropout"],
-            "name": "word1"
+            "name": "word1",
+            "position": {
+                "left": "25%"
+            }
         },
         {
             "text": "...",
-            "type": ["etc"],
+            "class": ["node-etc"],
             "parent": ["dropout"],
-            "name": "wordetc"
+            "name": "wordetc",
+            "position": {
+                "left": "50%"
+            }
         },
         {
             "text": "Word n",
-            "type": ["yellow"],
+            "class": ["node-yellow"],
             "parent": ["dropout"],
-            "name": "wordn"
+            "name": "wordn",
+            "position": {
+                "left": "75%"
+            }
         }
     ]
 ];
