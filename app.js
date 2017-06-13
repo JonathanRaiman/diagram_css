@@ -18,7 +18,12 @@ var nodes = [
             "text": "Thing",
             "type": ["gray"],
             "name": "thing",
-            "parent": ["tak"]
+            "parent": ["tak", "thing2"]
+        },
+        {
+            "text": "Thing",
+            "type": ["gray"],
+            "name": "thing2"
         }
     ],
     [
