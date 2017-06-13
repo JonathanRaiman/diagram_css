@@ -1,7 +1,7 @@
 var nodes = [
     [
         {
-            "text": "Type Axis 1",
+            "text": "Output 1",
             "class": ["node-yellow"],
             "name": "ta1",
             "position": {
@@ -16,7 +16,7 @@ var nodes = [
             }
         },
         {
-            "text": "Type Axis k",
+            "text": "Output k",
             "class": ["node-yellow"],
             "name": "tak",
             "position": {
@@ -27,17 +27,18 @@ var nodes = [
             "text": "Here's a really long winded message about how you should do diagrams NOT with SVGs, but with React!",
             "class": ["node-gray", "node-comment", "node-comment1"],
             "name": "thing",
-            "parent": ["tak", "thing2"]
+            "parent": ["tak", "thing2"],
+            "edge-class": ["network-edge-subtle"]
         },
         {
-            "text": "Thing",
+            "text": "Side message",
             "class": ["node-gray", "node-comment", "node-comment2"],
             "name": "thing2"
         }
     ],
     [
         {
-            "text": "softmax",
+            "text": "operation",
             "class": ["node-green"],
             "name": "s1",
             "parent": ["ta1"],
@@ -53,7 +54,7 @@ var nodes = [
             }
         },
         {
-            "text": "softmax",
+            "text": "operation",
             "class": ["node-green"],
             "name": "s2",
             "parent": ["tak"],
@@ -64,7 +65,7 @@ var nodes = [
     ],
     [
         {
-            "text": "FC",
+            "text": "+",
             "class": ["node-purple", "node-circle"],
             "name": "fc1",
             "parent": ["s1"],
@@ -73,7 +74,7 @@ var nodes = [
             }
         },
         {
-            "text": "FC",
+            "text": "×",
             "class": ["node-purple", "node-circle"],
             "name": "fc2",
             "parent": ["s2"],
@@ -84,11 +85,11 @@ var nodes = [
     ],
     [
         {
-            "text": "Stacked Bi-LSTM",
+            "text": "Big Pharma",
             "class": ["node-blue"],
             "width": "55%",
             "height": 0.4,
-            "name": "lstm",
+            "name": "pharma",
             "parent": ["fc1", "fc2"],
             "position": {
                 "left": "50%"
@@ -97,11 +98,11 @@ var nodes = [
     ],
     [
         {
-            "text": "dropout",
+            "text": "pensions",
             "class": ["node-green"],
             "width": "55%",
-            "name": "dropout",
-            "parent": ["lstm"],
+            "name": "pensions",
+            "parent": ["pharma"],
             "position": {
                 "left": "50%"
             }
@@ -109,9 +110,9 @@ var nodes = [
     ],
     [
         {
-            "text": "Word 1",
+            "text": "Citizen 1",
             "class": ["node-yellow"],
-            "parent": ["dropout"],
+            "parent": ["pensions"],
             "name": "word1",
             "position": {
                 "left": "25%"
@@ -120,16 +121,16 @@ var nodes = [
         {
             "text": "...",
             "class": ["node-etc"],
-            "parent": ["dropout"],
+            "parent": ["pensions"],
             "name": "wordetc",
             "position": {
                 "left": "50%"
             }
         },
         {
-            "text": "Word n",
+            "text": "Citizen n",
             "class": ["node-yellow"],
-            "parent": ["dropout"],
+            "parent": ["pensions"],
             "name": "wordn",
             "position": {
                 "left": "75%"

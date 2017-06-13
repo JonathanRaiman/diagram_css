@@ -103,6 +103,12 @@ function create_nodes(nodes, base_increment) {
             var level = nodes[i];
             for (var j = 0; j < level.length;j++) {
                 var node = level[j];
+                var className = "network-edge";
+                if ("edge-class" in node) {
+                    for (var l = 0; l < node["edge-class"].length;l++) {
+                        className += " " + node["edge-class"][l];
+                    }
+                }
                 if ("parent" in node) {
                     var current_node = node_stats[node.name];
                     var node_x, node_y, node_width, node_height;
@@ -208,8 +214,7 @@ function create_nodes(nodes, base_increment) {
                         }
                         paths.push(
                             <path d={lineFunction(positions)} key={path_counter++}
-                                  className="network-edge"
-                                  style={{"markerEnd": "url(#arrow)"}}/>
+                                  className={className}/>
                         );
                     }
                 }
