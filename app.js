@@ -138,4 +138,130 @@ var nodes = [
         }
     ]
 ];
-render_diagram(nodes, 40, document.getElementById("diagram"));
+// render_diagram(nodes, {increment:40}, document.getElementById("diagram"));
+
+
+
+
+var rotating_nodes = [
+    [
+        {
+            "text": "IsAnimal?",
+            "class": ["node-yellow"],
+            "name": "IsAnimal",
+            "position": {
+                "left": "50%"
+            }
+        }
+    ],
+    [
+        {
+            "text": "softmax",
+            "class": ["node-green"],
+            "name": "softmax",
+            "parent": ["IsAnimal"],
+            "position": {
+                "left": "50%"
+            }
+        }
+    ],
+    [
+        {
+            "text": "FC",
+            "class": ["node-purple", "node-circle"],
+            "name": "fc",
+            "parent": ["softmax"],
+            "position": {
+                "left": "50%"
+            }
+        }
+    ],
+    [
+        {
+            "text": "concat",
+            "class": ["node-green"],
+            "name": "concat",
+            "parent": ["fc"],
+            "position": {
+                "left": "50%"
+            }
+        }
+    ],
+    [
+        {
+            "text": "The",
+            "class": ["node-yellow", "node-rotatable", "node-rotate1"],
+            "parent": ["concat"],
+            "name": "word1",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate1"]
+        },
+        {
+            "text": "man",
+            "class": ["node-yellow", "node-rotatable", "node-rotate2"],
+            "parent": ["concat"],
+            "name": "word2",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate2"]
+        },
+        {
+            "text": "saw",
+            "class": ["node-yellow", "node-rotatable", "node-rotate3"],
+            "parent": ["concat"],
+            "name": "word3",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate3"]
+        },
+        {
+            "text": "the",
+            "class": ["node-yellow", "node-rotatable", "node-rotate4"],
+            "parent": ["concat"],
+            "name": "word4",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate4"]
+        },
+        {
+            "text": "jaguar",
+            "class": ["node-yellow", "node-rotatable", "node-rotate5"],
+            "parent": ["concat"],
+            "name": "word5",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate5"]
+        },
+        {
+            "text": "cross",
+            "class": ["node-yellow", "node-rotatable", "node-rotate6"],
+            "parent": ["concat"],
+            "name": "word6",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate6"]
+        },
+        {
+            "text": "the",
+            "class": ["node-yellow", "node-rotatable", "node-rotate7"],
+            "parent": ["concat"],
+            "name": "word7",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate7"]
+        },
+        {
+            "text": "jungle",
+            "class": ["node-yellow", "node-rotatable", "node-rotate8"],
+            "parent": ["concat"],
+            "name": "word8",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate8"]
+        },
+        {
+            "text": "fast",
+            "class": ["node-yellow", "node-rotatable", "node-rotate9"],
+            "parent": ["concat"],
+            "name": "word9",
+            "position": {},
+            "edge-class": ["edge-rotatable", "edge-rotate9"]
+        }
+    ]
+];
+
+render_diagram(rotating_nodes, {increment:40, refresh: 30},
+    document.getElementById("other-diagram"));

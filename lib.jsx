@@ -234,6 +234,7 @@ class Diagram extends React.Component {
             nodesizes: {}
         };
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.refresh_dimensions = this.refresh_dimensions.bind(this);
     }
 
     render() {
@@ -255,8 +256,15 @@ class Diagram extends React.Component {
         );
     }
 
-    updateDimensions() {
+    refresh_dimensions() {
+        this.updateDimensions();
+        console.log("yay", this.props.refresh);
+        this.refresh_dimensions_timeout = setTimeout(
+            this.refresh_dimensions, this.props.refresh
+        );
+    }
 
+    updateDimensions() {
         var nodesizes = {};
         for (var i = 0; i < this.props.nodes.length;i++) {
             var group_el = this.refs["node-group-" + i];
@@ -284,6 +292,11 @@ class Diagram extends React.Component {
     componentDidMount() {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions);
+        if (this.props.refresh > 0) {
+            this.refresh_dimensions_timeout = setTimeout(
+                this.refresh_dimensions, this.props.refresh
+            );
+        }
     }
 
     /**
@@ -291,11 +304,13 @@ class Diagram extends React.Component {
      */
     componentWillUnmount() {
         window.removeEventListener("resize", this.updateDimensions);
+        clearTimeout(this.refresh_dimensions_timeout);
     }
 
 }
 
-window.render_diagram = function (nodes, increment, canvas) {
+window.render_diagram = function (nodes, config, canvas) {
     ReactDOM.render(<Diagram nodes={nodes}
-                             increment={increment}/>, canvas);
+                             increment={config.increment}
+                             refresh={("refresh" in config) ? config.refresh : -1}/>, canvas);
 }
